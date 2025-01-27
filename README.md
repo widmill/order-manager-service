@@ -12,9 +12,5 @@ bash
 bash
    mvn install
 3. Добавить в hibernate.properties свои параметры для БД.
-  
-4. Запустите приложение:
-bash
-  mvn spring-boot:run
 
 В проекте есть SQL скрипт и Postman файл с примерами запросов.
