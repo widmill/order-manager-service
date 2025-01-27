@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "1303b483-74de-4dbe-8d29-e64d742502d5",
+		"name": "order-manager-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21056224"
+	},
+	"item": [
+		{
+			"name": "saveProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\": \"TV\",\r\n    \"price\": 8000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveOrder",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"customerName\" : \"Алексей Петров\",\r\n            \"productIds\": [\r\n               \"f0f7ddd8-7eda-4a6b-8b95-e2363c638a76\", //подставить новые значения\r\n               \"6b2c3363-8d55-4d2e-ae85-fba9f1b01648\",\r\n               \"b6913850-44bb-40db-ad11-67895ddea4c1\"\r\n           ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByCustomerName",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders/?customerName=Алексей Петров",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						""
+					],
+					"query": [
+						{
+							"key": "customerName",
+							"value": "Алексей Петров"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

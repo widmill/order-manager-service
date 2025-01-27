@@ -1,11 +1,13 @@
 package com.example.ordermanagerservice.dao;
 
 import com.example.ordermanagerservice.entity.Product;
+import com.example.ordermanagerservice.exception.EntityNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,9 +36,10 @@ public class ProductDAO {
         List<Product> products = new ArrayList<>();
         for (UUID id : ids) {
             Product product = session.get(Product.class, id);
-            if (product != null) {
-                products.add(product);
+            if (product == null) {
+                throw new EntityNotFoundException("Заказ с данным ID не найден.");
             }
+            products.add(product);
         }
 
         return products;

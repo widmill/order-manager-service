@@ -6,7 +6,7 @@ import com.example.ordermanagerservice.dto.OrderDTO;
 import com.example.ordermanagerservice.dto.ProductDTO;
 import com.example.ordermanagerservice.entity.Order;
 import com.example.ordermanagerservice.entity.Product;
-import com.example.ordermanagerservice.exception.CustomerNotFound;
+import com.example.ordermanagerservice.exception.EntityNotFoundException;
 import com.example.ordermanagerservice.util.JsonExporter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +40,7 @@ public class OrderService {
         List<Order> orders = orderDAO.findOrdersByCustomerName(customerName);
 
         if (orders.isEmpty()) {
-            throw new CustomerNotFound("Заказов на данное имя не найдено.");
+            throw new EntityNotFoundException("Заказов на данное имя не найдено.");
         }
 
         return orders.stream()

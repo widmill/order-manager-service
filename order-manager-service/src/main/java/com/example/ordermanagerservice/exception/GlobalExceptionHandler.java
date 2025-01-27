@@ -15,8 +15,8 @@ import java.util.Map;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
-    @ExceptionHandler(CustomerNotFound.class)
-    public Object entityNotFoundHandler(CustomerNotFound ex) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    public Object entityNotFoundHandler(EntityNotFoundException ex) {
         Map<String, Object> body = new LinkedHashMap<>();
 
         body.put("message", ex.getMessage());
